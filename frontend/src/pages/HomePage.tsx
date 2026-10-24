@@ -3,6 +3,7 @@ import ErrorBanner from '../components/ErrorBanner'
 import TaskForm from '../components/TaskForm'
 import TaskList from '../components/TaskList'
 import { useTasks } from '../hooks/useTasks'
+import WeatherCard from '../components/WeatherCard'
 
 type Filter = 'all' | 'active' | 'completed'
 
@@ -36,7 +37,7 @@ export default function HomePage() {
           {tasks.length === 0 ? 'Nothing on the list.' : `${doneCount} of ${tasks.length} done`}
         </p>
       </header>
-
+      <WeatherCard />
       <TaskForm onSubmit={addTask} />
 
       {error && <ErrorBanner message={error} onRetry={reload} />}
@@ -44,9 +45,8 @@ export default function HomePage() {
       <div role="tablist" aria-label="Filter tasks" className="flex gap-1 border-b border-ink/15">
         {FILTERS.map((f) => (
           <button key={f.value} role="tab" aria-selected={filter === f.value} onClick={() => setFilter(f.value)}
-            className={`-mb-px border-b-2 px-3 py-2 text-sm font-medium ${
-              filter === f.value ? 'border-moss text-moss' : 'border-transparent text-ink/60 hover:text-ink'
-            }`}>
+            className={`-mb-px border-b-2 px-3 py-2 text-sm font-medium ${filter === f.value ? 'border-moss text-moss' : 'border-transparent text-ink/60 hover:text-ink'
+              }`}>
             {f.label}
           </button>
         ))}
