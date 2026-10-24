@@ -22,7 +22,8 @@ export const errorHandler = (err, _req, res, _next) => {
     message = 'Request body is not valid JSON';
   }
 
-  if (status >= 500) {
+   // Unexpected errors are logged and hidden; ApiError messages are written to be shown to users.
+  if (status >= 500 && !(err instanceof ApiError)) {
     console.error(err);
     message = 'Internal server error';
   }
