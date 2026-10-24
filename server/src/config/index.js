@@ -23,6 +23,9 @@ export const {
   MONGODB_URI,
   FRONTEND_URL,
   APP_NAME,
+  GEO_URL,
+  FORECAST_URL
+
   
 } = process.env;
 

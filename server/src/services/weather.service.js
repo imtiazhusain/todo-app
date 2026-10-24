@@ -1,7 +1,7 @@
+import { FORECAST_URL, GEO_URL } from '../config/index.js';
 import { ApiError } from '../utils/ApiError.js';
 
-const GEO_URL = 'https://geocoding-api.open-meteo.com/v1/search';
-const FORECAST_URL = 'https://api.open-meteo.com/v1/forecast';
+
 const CACHE_TTL_MS = 10 * 60 * 1000;
 const cache = new Map();
 
